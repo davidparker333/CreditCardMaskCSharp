@@ -23,14 +23,7 @@ namespace CreditCardMaskCSharp
             {
                 return cc;
             }
-            string lastFour = cc.Substring(cc.Length-4);
-            List<string> hash = new List<string>();
-            for (int i=0; i<cc.Length-4; i++)
-            {
-                hash.Add("#");
-            }
-            string stringHash =  String.Join("", hash.ToArray());
-            return stringHash + lastFour;
+            return cc.Substring(cc.Length - 4).PadLeft(cc.Length, '#');
         }
     }
 }
